@@ -2,6 +2,8 @@ import Hashmap from "./hashmap.js";
 
 const hashmap = new Hashmap(8);
 
+console.log(hashmap.capacity);
+
 hashmap.set("Yvonne", {
   name: "Rosemarie Yvonne",
   lastName: "Ico",
@@ -61,3 +63,7 @@ hashmap.set("Noah", {
   lastName: "Bennett",
   age: 23,
 });
+
+console.log(hashmap.capacity);
+
+console.log(hashmap.get("Isla"));

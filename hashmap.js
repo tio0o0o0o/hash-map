@@ -18,6 +18,17 @@ class Hashmap {
     return arr;
   }
 
+  checkGrow() {
+    if (this.length() > this.capacity * this.loadFactor) {
+      this.capacity *= 2;
+      const entries = this.entries();
+      this.clear();
+      entries.forEach((entry) => {
+        this.set(entry[0], entry[1]);
+      });
+    }
+  }
+
   values() {
     let arr = [];
     this.data.forEach((list) => {
@@ -72,6 +83,7 @@ class Hashmap {
   }
 
   set(key, value) {
+    this.checkGrow();
     const hashIndex = this.hash(key);
     if (this.data[hashIndex] == null) {
       this.data[hashIndex] = new LinkedList();
